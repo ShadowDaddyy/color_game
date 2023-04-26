@@ -9,7 +9,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
     </head>
-    <body style="background-color: <?php echo $this->session->flashdata('chosen_color'); ?>">
+    <body>
         
         
 
