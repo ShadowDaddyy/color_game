@@ -1,4 +1,4 @@
-    </body>
+</body>
     
     <script>
         // var cube = document.getElementsByClassName('colorDice');
