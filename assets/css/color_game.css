@@ -1,0 +1,83 @@
+
+
+.maincont{
+ width: 600px;
+ margin: auto;
+}
+
+.main-color-container{
+    display: block;
+
+    /* width:900px;
+    height:600px */
+}
+
+.display-colors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-container {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    /* width: 33%;
+    height: 33%; */
+    height: 10vh;
+    border: 1px solid black;
+}
+
+.sub-color-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+.btnGo{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.status2{
+    text-align: center;
+}
+
+#colorRed{
+    background-color: red;
+}
+
+#colorBlue{
+    background-color: blue;
+}
+
+#colorGreen{
+    background-color: green;
+}
+
+#colorWhite{
+    background-color: white;
+}
+
+#colorYellow{
+    background-color: yellow;
+}
+
+#colorPink{
+    background-color: pink;
+}
+
+.letsPlayCont{
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+}
