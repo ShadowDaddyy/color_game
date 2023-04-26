@@ -20,6 +20,11 @@
 				$random_colors = $this->cg_model->get_colors();
 				$color = $this->input->post('color');
 
+				// echo ($color);
+				// echo ($random_colors[0]);
+				// echo ($random_colors[1]);
+				// echo ($random_colors[2]);
+
 				$this->session->set_flashdata('color1', $random_colors[0]);
 				$this->session->set_flashdata('color2', $random_colors[1]);
 				$this->session->set_flashdata('color3', $random_colors[2]);
@@ -30,15 +35,17 @@
 				
 				if ($win) {
 					$this->session->set_flashdata('game_status', 'YOU WIN');
+					// echo ("Win");
 				} else {
 					$this->session->set_flashdata('game_status', 'Better Luck Next Time');
+					// echo ("Lose");
 				}
 				// die($random_colors[0] . " " . $random_colors[1] . " " . $random_colors[2]);
-				redirect('/color_game');
+				redirect('');
 
             }else{
-                $this->session->set_flashdata('Error', 'Please Choose A Color First');
-                redirect('/color_game');
+                $this->session->set_flashdata('game_status', 'Please Choose A Color First');
+                redirect('');
             }
         }
     }

@@ -1,4 +1,4 @@
-<span><?php echo $this->session->flashdata('results'); ?></span>
+<div><h1>Hello</h1><span><?php echo $this->session->flashdata('game_status'); ?></span></div>
 <div class="diceCont">
     <div class="container">
         <div class="colorDice" id="cube1">
@@ -90,7 +90,7 @@
 <div class="main-color-container">
     <?php echo form_open('color_game/play'); ?>
     <div class="btnGo">
-        <button id="go" onclick="spinDice2()">Go</button>
+        <button type="submit" id="go">Go</button>
     </div>
     
     <div class="sub-color-container">
