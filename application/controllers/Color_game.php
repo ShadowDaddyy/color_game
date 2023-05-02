@@ -35,6 +35,8 @@
 				
 				if ($win) {
 					$this->session->set_flashdata('game_status', 'YOU WIN');
+					echo "<script type='text/javascript'>sound()</script>"; 
+					
 					// echo ("Win");
 				} else {
 					$this->session->set_flashdata('game_status', 'Better Luck Next Time');

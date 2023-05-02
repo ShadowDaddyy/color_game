@@ -10,8 +10,8 @@
         
     </head>
     <body>
-        
-        
+    <div class="bg" style="background-image:url(' <?php echo base_url(); ?>assets/pictures/BG.png');">
+    
 
         
 

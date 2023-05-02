@@ -1,3 +1,4 @@
+</div>
 </body>
     
     <script>
@@ -89,8 +90,7 @@
                 const color1 = getXY("<?php echo $this->session->flashdata('color1'); ?>");
                 const color2 = getXY("<?php echo $this->session->flashdata('color2'); ?>");
                 const color3 = getXY("<?php echo $this->session->flashdata('color3'); ?>");
-                console.log(color1[0]);
-                console.log(color1[1]);
+                
 
                 cube1.style.webkitTransform = 'rotateX('+color1[0]+'deg) rotateY('+color1[1]+'deg)';
                 cube1.style.transform = 'rotateX('+color1[0]+'deg) rotateY('+color1[1]+'deg)';
@@ -114,12 +114,12 @@
                     case "green":
                         console.log("Green 2");
                         return [540, 1440];
-                        // console.log(cubeID);
+                         console.log(cubeID);
                         // rotateCube(540, 1440, cubeID);
                     case "blue":
                         console.log("Blue 3");
                         return [900, 90];
-                        // console.log(cubeID);
+                         console.log(cubeID);
                         // rotateCube(900, 90, cubeID);
                     case "white":
                         console.log("White 4");
@@ -133,7 +133,7 @@
                         // rotateCube(270, 990, cubeID);
                     case "pink":
                         console.log("Pink 6");
-                        return [450, 1800];s
+                        return [450, 1800];
                         // console.log(cubeID);
                         // rotateCube(450, 1800, cubeID);
                     default:
@@ -150,5 +150,9 @@
         </script>
     <?php endif; ?>
 
+   
 
+
+
+   
 </html>
