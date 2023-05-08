@@ -1,0 +1,31 @@
+.colorTable{
+    width: 20.2em;
+    height: 35em;
+    background-repeat: no-repeat;
+    
+}
+
+#logoStart{
+    width: 20em;
+    height: 10em;
+    margin: 20em 0em 3em 0em;
+}
+
+.basta-btn , .basta-btn2{
+    border:none;
+    border-radius: 100px;
+    padding:0;
+    margin-bottom: 10px;
+}
+
+.startBtnCont{
+    display: inline-block;
+}
+
+.basta-btn{
+    display: block;
+}
+
+.basta-btn2{
+    display: block;
+}
