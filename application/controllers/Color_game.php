@@ -1,6 +1,6 @@
 <?php   
     class Color_game extends CI_Controller{
-        public function index($page = 'index'){
+        public function index($page = 'start'){
 			if(!file_exists(APPPATH.'views/color_game/'.$page.'.php')){
 				show_404();
 			}
