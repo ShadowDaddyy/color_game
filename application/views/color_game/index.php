@@ -15,40 +15,28 @@
 
 <div class="colorTableCont">
     <div class="colorTable" >
-    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Board.png" alt="Color Table"><br> -->
-
     <div class="main-color-container">
         <div class="secondary-color-container">
-            <?php echo form_open('color_game/play'); ?>
+            <!-- <?php echo form_open('color_game/play'); ?> -->
             <div class="boxColorCont">
 
-                <div class="boxColorCont-left">
-                <input type="checkbox" class="checkboxoption" id="cb1" name="vehicle1" value="Bike">
-                <label for="vehicle1"> </label><br>
-                <input type="checkbox" class="checkboxoption" id="cb2" name="vehicle2" value="Car">
-                <label for="vehicle2"> </label><br>
-                <input type="checkbox" class="checkboxoption" id="cb3" name="vehicle3" value="Boat">
-                <label for="vehicle3"> </label><br><br>
-                </div>
-
-                <div class="boxColorCont-right">
-                <input type="checkbox" class="checkboxoption" id="cb4" name="vehicle1" value="Bike">
-                <label for="vehicle1"> </label><br>
-                <input type="checkbox" class="checkboxoption" id="cb5" name="vehicle2" value="Car">
-                <label for="vehicle2"> </label><br>
-                <input type="checkbox" class="checkboxoption" id="cb6" name="vehicle3" value="Boat">
-                <label for="vehicle3"> </label><br><br>
+                <div class="grid-container">
+                    <div class="grid-item" id="color1red"  onfocusin="mark('red', 'color1red')" onfocusout="unmark('color1red')" tabindex="0" >0</div>
+                    <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark('color2blue')" tabindex="0">0</div>
+                    <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark('color3cyan')" tabindex="0">0</div>  
+                    <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark('color4yellow')" tabindex="0">0</div>
+                    <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark('color5green')" tabindex="0">0</div>
+                    <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark('color6magenta')" tabindex="0">0</div>  
                 </div>
 
             </div>
             
-        <?php echo form_close(); ?>
+        <!-- <?php echo form_close(); ?> -->
         </div>
-     </div>
-    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" class="button-bottom"><br>
-    <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="submit()"> -->
-    
-        
+    </div>
+    <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" class="button-bottom" onclick="add()"><br>
+    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="submit()">     -->
+    <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="window.location.href='<?php echo base_url(); ?>color_game/play'"> 
 </div>    
 </div>
 
@@ -192,7 +180,95 @@
 <?php endif; ?>
 
 
+<script>
+    
+    // function check(color, id){
+       
+    //     console.log(color);
+    //     document.cookie = "myColor=" + color;
+
+    //     var myDiv = document.getElementById(id);
+
+    //     // Set the opacity
+    //     myDiv.style.border = "5px solid black";
+    // }
+
+    // $("table tbody").on("click", "tr", function () {
+    //     $("tr.selected")  // find any selected rows
+    //     .not(this)  // ignore the one that was clicked
+    //     .removeClass("selected");  // remove the selection
+    //     $(this).toggleClass("selected");  // toggle the selection clicked row
+    // });
+
+    function add(){
+        var color = getColor();
+        
+        switch (color) {
+            case "red":
+                red++;
+                document.getElementById("color1red").innerHTML = red;
+                console.log("red is " + red);
+                break;
+            case "blue":
+                blue++;
+                document.getElementById("color2blue").innerHTML = blue;
+                console.log("blue is " + blue);
+                break;
+            case "cyan":
+                cyan++;
+                document.getElementById("color3cyan").innerHTML = cyan;
+                console.log("cyan is " + cyan);
+                break;
+            case "yellow":
+                yellow++;
+                document.getElementById("color4yellow").innerHTML = yellow;
+                console.log("yellow is " + yellow);
+                break;
+            case "green":
+                green++;
+                document.getElementById("color5green").innerHTML = green;
+                console.log("green is " + green);
+                break;
+            case "magenta":
+                magenta++;
+                document.getElementById("color6magenta").innerHTML = magenta;
+                console.log("magenta is " + magenta);
+                break;
+            default:
+                console.log("You did not chose a color");
+        }
+    }
+
+    function getColor(){
+        let cookies = document.cookie.split(';');
+        let myColorValue = null;
+
+        cookies.forEach(cookie => {
+            let parts = cookie.trim().split('=');
+            if (parts[0] === 'myColor') {
+                myColorValue = parts[1];
+            }
+        });
+        console.log(myColorValue);
+        return myColorValue;
+    }
+
+    function mark(color, id){
+        var myDiv = document.getElementById(id);
+        myDiv.style.border = "1px solid black";
+        document.cookie = "myColor=" + color;
+    }
+
+    function unmark(id){
+        var myDiv = document.getElementById(id);
+        myDiv.style.border = "none";
+        document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    }
+</script>
+
 <!-- 
+    <input type="image" src="<?php echo base_url(); ?>assets/pictures/Magenta.png" onfocusin="mark('color6magenta')" onfocusout="unmark('color6magenta')"></input>
 <div class="colorbox-cont">
     <div class="btnGo">
                 <button type="submit" id="go">Go</button>

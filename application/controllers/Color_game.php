@@ -14,6 +14,11 @@
 
 
         public function play(){
+
+			$myData = $_COOKIE['myColor'];
+
+			// die($myData);
+
             $this->form_validation->set_rules('color', 'Color', 'required');
 
             if($this->form_validation->run() === TRUE){

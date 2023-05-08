@@ -23,31 +23,36 @@
    display: flex;
    justify-content: center;
    align-items: flex-end;
+   width: auto;
+   height: auto;
 
     /* width:900px;
     height:600px */
 }
 
 .secondary-color-container{
-    display: flex;
-    position: absolute;
-    top: 11.4em;
+    display: flex; 
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    /* background-color: #2196F3; */
+    margin-top: 5.3rem;
+    gap: 7px;
+}
+
+.grid-item {
+    padding: 30px 40px;
+    font-size: 30px;
+    text-align: center;
+}
+
 
 .boxColorCont{
-    display: block;
 }
 
-.boxColorCont-left{
-    display: inline-block;
-}
-.boxColorCont-left .input[type="checkbox"]{
-    accent-color: red;
-}
 
-.boxColorCont-right{
-    display: inline-block;
-}
 
 .checkboxoption{
     width: 9rem;
@@ -67,7 +72,6 @@
 .colorTable{
     width: 20.2em;
     height: 35em;
-    padding-bottom: 100px;
     background-image: url('../pictures/Board.png');
     background-repeat: no-repeat;
 }
@@ -160,5 +164,37 @@
 
 .diceModal{
     position: absolute;
+    
+}
+
+#color1red{
+    background-image: url('../pictures/Red.png');
+    background-repeat: no-repeat;
+}
+
+#color2blue{
+    background-image: url('../pictures/Blue.png');
+    background-repeat: no-repeat;
+}
+
+#color3cyan{
+    background-image: url('../pictures/Cyan.png');
+    background-repeat: no-repeat;
+}
+
+#color4yellow{
+    background-image: url('../pictures/Yellow.png');
+    background-repeat: no-repeat;
+}
+
+#color5green{
+    background-image: url('../pictures/Green.png');
+    background-repeat: no-repeat;
+}
+
+#color6magenta{
+    background-image: url('../pictures/Magenta.png');
+    background-repeat: no-repeat;
+
     
 }

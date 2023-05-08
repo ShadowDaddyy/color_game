@@ -10,7 +10,16 @@
         <link rel="stylesheet" href="https://bootswatch.com/5/flatly/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <script>
+            var red = 0;
+            var blue = 0;
+            var cyan = 0;
+            var yellow = 0;
+            var green = 0;
+            var magenta = 0;
+        </script>
         
         
         
