@@ -19,13 +19,15 @@
             var yellow = 0;
             var green = 0;
             var magenta = 0;
+            document.cookie = "myColor=null;";
         </script>
         
         
         
     </head>
-    <body>
-    <div class="bg" style="background-image:url(' <?php echo base_url(); ?>assets/pictures/BG.png');">
+    <body style="background-image:url(' <?php echo base_url(); ?>assets/pictures/BG.png');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
+    <!-- <div class="bg" style="background-image:url(' <?php echo base_url(); ?>assets/pictures/BG.png');"> -->
+    <div>
     
 
         

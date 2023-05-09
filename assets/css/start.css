@@ -8,7 +8,8 @@
 #logoStart{
     width: 20em;
     height: 10em;
-    margin: 20em 0em 3em 0em;
+    /* margin: 20em 0em 3em 0em; */
+    margin-bottom:3em;
 }
 
 .basta-btn , .basta-btn2{

@@ -1,7 +1,7 @@
 </div>
 </body>
 
-        <script>
+        <!-- <script>
             window.onload = function() {
                 var red = 0;
                 var blue = 0;
@@ -10,9 +10,10 @@
                 var green = 0;
                 var magenta = 0;
             }
-        </script>
+        </script> -->
     
     <script>
+
         // var cube = document.getElementsByClassName('colorDice');
         var cube1 = document.getElementById('cube1');
         var cube2 = document.getElementById('cube2');

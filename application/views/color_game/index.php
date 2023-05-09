@@ -15,29 +15,38 @@
 
 <div class="colorTableCont">
     <div class="colorTable" >
-    <div class="main-color-container">
-        <div class="secondary-color-container">
-            <!-- <?php echo form_open('color_game/play'); ?> -->
-            <div class="boxColorCont">
+        <div class="main-color-container">
+            <div class="secondary-color-container">
+                <!-- <?php echo form_open('color_game/play'); ?> -->
+                <div class="boxColorCont">
 
-                <div class="grid-container">
-                    <div class="grid-item" id="color1red"  onfocusin="mark('red', 'color1red')" onfocusout="unmark('color1red')" tabindex="0" >0</div>
-                    <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark('color2blue')" tabindex="0">0</div>
-                    <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark('color3cyan')" tabindex="0">0</div>  
-                    <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark('color4yellow')" tabindex="0">0</div>
-                    <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark('color5green')" tabindex="0">0</div>
-                    <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark('color6magenta')" tabindex="0">0</div>  
+                    <div class="grid-container">
+                        <div class="grid-item" id="color1red"  onfocusin="mark('red', 'color1red')" onfocusout="unmark('color1red')" tabindex="0" >0</div>
+                        <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark('color2blue')" tabindex="0">0</div>
+                        <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark('color3cyan')" tabindex="0">0</div>  
+                        <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark('color4yellow')" tabindex="0">0</div>
+                        <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark('color5green')" tabindex="0">0</div>
+                        <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark('color6magenta')" tabindex="0">0</div>  
+                    </div>
+
                 </div>
-
+                
+            <!-- <?php echo form_close(); ?> -->
             </div>
-            
-        <!-- <?php echo form_close(); ?> -->
         </div>
-    </div>
-    <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" class="button-bottom" onclick="add()"><br>
-    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="submit()">     -->
-    <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="window.location.href='<?php echo base_url(); ?>color_game/play'"> 
-</div>    
+    
+    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" class="button-bottom" onclick="add()"><br> -->
+    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="window.location.href='<?php echo base_url(); ?>color_game/play'">  -->
+    </div>    
+</div>
+<div class="centered">
+    <br>
+    <button class="basta-btn">
+        <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
+    </button>
+    <button class="basta-btn">
+        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" onclick="window.location.href='<?php echo base_url(); ?>color_game/play'"> 
+    </button>
 </div>
 
 <div>
@@ -181,6 +190,9 @@
 
 
 <script>
+    // window.onbeforeunload = function() {
+    //     document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    // }
     
     // function check(color, id){
        
