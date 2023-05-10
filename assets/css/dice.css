@@ -94,4 +94,8 @@ h1 {
     text-align: center;
     padding: 0px 0;
   }
+
+  div.modal-header{
+    border-bottom: none;
+  }
   

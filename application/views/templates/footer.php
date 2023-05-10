@@ -1,17 +1,7 @@
 </div>
 </body>
+    <script scr="<?php echo base_url(); ?>assets/js/dice.js"></script>
 
-        <!-- <script>
-            window.onload = function() {
-                var red = 0;
-                var blue = 0;
-                var cyan = 0;
-                var yellow = 0;
-                var green = 0;
-                var magenta = 0;
-            }
-        </script> -->
-    
     <script>
 
         // var cube = document.getElementsByClassName('colorDice');
@@ -33,9 +23,7 @@
             console.log(xRand);
             console.log(yRand);
             
-            
-            
-
+        
             var xRand = getRandom(max, min);
             var yRand = getRandom(max, min);
             cube2.style.webkitTransform = 'rotateX('+xRand+'deg) rotateY('+yRand+'deg)';
@@ -96,13 +84,19 @@
 
     <?php if($this->session->flashdata('game_status')): ?>
         <script>
-            window.onload = function() {
-                // var color = "<?php echo $this->session->flashdata('color1'); ?>";
-                // console.log(color);
+
+            $(document).ready(function() {
+                $('#diceModal').modal('show');
+            });
+
+            setTimeout(function() {
+                var cube1 = document.getElementById('cube1');
+                var cube2 = document.getElementById('cube2');
+                var cube3 = document.getElementById('cube3');
+
                 const color1 = getXY("<?php echo $this->session->flashdata('color1'); ?>");
                 const color2 = getXY("<?php echo $this->session->flashdata('color2'); ?>");
                 const color3 = getXY("<?php echo $this->session->flashdata('color3'); ?>");
-                
 
                 cube1.style.webkitTransform = 'rotateX('+color1[0]+'deg) rotateY('+color1[1]+'deg)';
                 cube1.style.transform = 'rotateX('+color1[0]+'deg) rotateY('+color1[1]+'deg)';
@@ -112,8 +106,12 @@
 
                 cube3.style.webkitTransform = 'rotateX('+color3[0]+'deg) rotateY('+color3[1]+'deg)';
                 cube3.style.transform = 'rotateX('+color3[0]+'deg) rotateY('+color3[1]+'deg)';
+            }, 2000);
 
-            };
+            setTimeout(function() {
+                $('#diceModal').hide();
+                $('#resultsModal').modal('show');
+            }, 6000);
 
             function getXY(color, cubeID) {
                 // console.log(color);
@@ -123,33 +121,33 @@
                         return [1980, 1620];
                         // console.log(cubeID);
                         // rotateCube(1980, 1620, cubeID);
-                    case "green":
-                        console.log("Green 2");
+                    case "blue":
+                        console.log("Blue 2");
                         return [540, 1440];
                          console.log(cubeID);
                         // rotateCube(540, 1440, cubeID);
-                    case "blue":
-                        console.log("Blue 3");
+                    case "cyan":
+                        console.log("Cyan 3");
                         return [900, 90];
                          console.log(cubeID);
                         // rotateCube(900, 90, cubeID);
-                    case "white":
-                        console.log("White 4");
+                    case "yellow":
+                        console.log("Yellow 4");
                         return [1080, 90];
                         // console.log(cubeID);
                         // rotateCube(1080, 90, cubeID);
-                    case "yellow":
-                        console.log("Yellow 5");
+                    case "green":
+                        console.log("Green 5");
                         return [270, 990];
                         // console.log(cubeID);
                         // rotateCube(270, 990, cubeID);
-                    case "pink":
-                        console.log("Pink 6");
+                    case "magenta":
+                        console.log("Magenta 6");
                         return [450, 1800];
                         // console.log(cubeID);
                         // rotateCube(450, 1800, cubeID);
                     default:
-                        console.log("meow");
+                        console.log("meow meow di gumana meow");
                 }
             }
 

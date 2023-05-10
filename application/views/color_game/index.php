@@ -7,9 +7,9 @@
 
 <div>
     <button id="returnHome" onclick="window.location.href='<?php echo base_url(); ?>';">Home</button>
-    <span><?php echo $this->session->flashdata('game_status'); ?></span></div>
+    <!-- <span><?php echo $this->session->flashdata('game_status'); ?></span></div> -->
 
-
+   
 
 
 
@@ -17,7 +17,6 @@
     <div class="colorTable" >
         <div class="main-color-container">
             <div class="secondary-color-container">
-                <!-- <?php echo form_open('color_game/play'); ?> -->
                 <div class="boxColorCont">
 
                     <div class="grid-container">
@@ -31,12 +30,18 @@
 
                 </div>
                 
-            <!-- <?php echo form_close(); ?> -->
             </div>
         </div>
+
+        <div class="availPoint">
+        <p>Available Points</p>
+        <?php if($this->session->userdata('total_points')): ?>
+            <p id="pointCont"><?php echo $this->session->userdata('total_points'); ?></p>
+        <?php else: ?>
+            <p>0</p>
+        <?php endif; ?>
+        </div>
     
-    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" class="button-bottom" onclick="add()"><br> -->
-    <!-- <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" class="button-bottom" onclick="window.location.href='<?php echo base_url(); ?>color_game/play'">  -->
     </div>    
 </div>
 <div class="centered">
@@ -44,8 +49,8 @@
     <button class="basta-btn">
         <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
     </button>
-    <button class="basta-btn">
-        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" onclick="window.location.href='<?php echo base_url(); ?>color_game/play'"> 
+    <button class="basta-btn" id="rollNowBtn">
+        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" onclick="play(); "> 
     </button>
 </div>
 
@@ -57,18 +62,16 @@
     <button class="letsPlay" onclick="sound()">Spin Red Dice</button>
 </div>
 
+<!-- Dice Modal -->
 <div class="modal fade" id="diceModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <!-- <div class="modal-header">
                 
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
-                <span aria-hidden="true"></span>
-                </button>
             </div>
             <div class="userImage">
                
-            </div>
+            </div> -->
             
                
                 <div class="diceCont">
@@ -158,28 +161,22 @@
                     </div>
                 </div>
                     
-                   
-                <div class="modal-footer" id="editUser">
-                    
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeModal()">Cancel</button>
-                </div>
            
         </div>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- Results Modal -->
+<div class="modal fade" id="resultsModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+           
+           <p><?php echo $this->session->flashdata('game_status'); ?></p> 
+           <p>You earned <?php echo $this->session->flashdata('points'); ?> points</p>        
+           
+        </div>
+    </div>
+</div>
 
 
 
@@ -190,34 +187,32 @@
 
 
 <script>
-    // window.onbeforeunload = function() {
-    //     document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    // }
-    
-    // function check(color, id){
-       
-    //     console.log(color);
-    //     document.cookie = "myColor=" + color;
+    function confetti(){
+    $(document).ready(function() {
+			for (var i = 0; i < 50; i++) {
+				var confetti = $('<div class="confetti"></div>');
+				confetti.css({
+					"left": Math.random() * 100 + "%",
+					"top": Math.random() * 100 + "%",
+					"background-color": "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
+				});
+				$('body').append(confetti);
+			}
+		});
 
-    //     var myDiv = document.getElementById(id);
-
-    //     // Set the opacity
-    //     myDiv.style.border = "5px solid black";
-    // }
-
-    // $("table tbody").on("click", "tr", function () {
-    //     $("tr.selected")  // find any selected rows
-    //     .not(this)  // ignore the one that was clicked
-    //     .removeClass("selected");  // remove the selection
-    //     $(this).toggleClass("selected");  // toggle the selection clicked row
-    // });
+    }
 
     function add(){
         var color = getColor();
         
+
         switch (color) {
             case "red":
+                
+                // var pts=<?php $this->session->userdata('total_points') ;?>;
                 red++;
+                
+                '<?php $this->session->uset_serdata('total_points' , ) ;?>'
                 document.getElementById("color1red").innerHTML = red;
                 console.log("red is " + red);
                 break;
@@ -268,6 +263,7 @@
     function mark(color, id){
         var myDiv = document.getElementById(id);
         myDiv.style.border = "1px solid black";
+        
         document.cookie = "myColor=" + color;
     }
 
@@ -277,6 +273,18 @@
         document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     }
+
+
+    function play() {
+        document.cookie = "red="+red;
+        document.cookie = "blue="+blue;
+        document.cookie = "cyan="+cyan;
+        document.cookie = "yellow="+yellow;
+        document.cookie = "green="+green;
+        document.cookie = "magenta="+magenta;
+        window.location.href = "<?php echo base_url(); ?>play"
+    }
+
 </script>
 
 <!-- 

@@ -1,7 +1,7 @@
 <?php
     class cg_model extends CI_Model {
         public function get_colors(){
-            $colors = array("blue", "green", "white", "red", "yellow", "pink");
+            $colors = array("red", "blue", "cyan", "yellow", "green", "magenta");
 			$random_keys = array_rand($colors,3);
 
             $random_colors = array($colors[$random_keys[0]], $colors[$random_keys[1]], $colors[$random_keys[2]]);
