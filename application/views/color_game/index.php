@@ -46,11 +46,21 @@
 </div>
 <div class="centered">
     <br>
-    <button class="basta-btn">
-        <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
-    </button>
+    <?php if($this->session->userdata('total_points') > 0) : ?>
+        <button class="basta-btn">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
+        </button>
+    <?php else: ?>
+        <button class="basta-btn">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet">
+        </button>
+    <?php endif; ?>
+    
     <button class="basta-btn" id="rollNowBtn">
-        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_active.png" alt="Roll Now" onclick="play(); "> 
+        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_Active.png" alt="Roll Now" onclick="play(); "> 
+    </button>
+    <button class="basta-btn" id="rollNowBtnDisabled">
+        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_Innactive.png" alt="Roll Now"> 
     </button>
 </div>
 
@@ -204,15 +214,17 @@
 
     function add(){
         var color = getColor();
+        $.ajax({
+        type: 'POST',
+        url: '<?php echo base_url();?>decrement',
+        success: function(data) {
+            console.log('New Userdata Value: ' + data);
+        }
+        });
         
-
         switch (color) {
-            case "red":
-                
-                // var pts=<?php $this->session->userdata('total_points') ;?>;
+            case "red":      
                 red++;
-                
-                '<?php $this->session->uset_serdata('total_points' , ) ;?>'
                 document.getElementById("color1red").innerHTML = red;
                 console.log("red is " + red);
                 break;

@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['play'] = 'color_game/play';
+$route['decrement'] = 'color_game/decrement_userdata';
 $route['default_controller'] = 'color_game';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

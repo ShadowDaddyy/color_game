@@ -39,7 +39,7 @@
 
 			if ($this->session->userdata('total_points')) {
 				$currentPoints = $this->session->userdata('total_points');
-				$totalPoints = $point1 + $point2 + $point3 + $currentPoints;
+				$totalPoints = $points + $currentPoints;
 			} else {
 				$totalPoints = $points;
 			}
@@ -47,7 +47,7 @@
 			$this->session->set_userdata('total_points', $totalPoints);
 
 			if ($points > 0) {
-				$this->session->set_flashdata('game_status', 'Congratulations');
+				$this->session->set_flashdata('game_status', 'Congratulations!');
 			} else {
 				$this->session->set_flashdata('game_status', 'Better Luck Next Time');
 			}
@@ -84,5 +84,15 @@
 			return $point;
 		}
 
-		
+		public function update_userdata() {
+			$new_value = $this->input->post('total_points');
+			$this->session->set_userdata('total_points', $new_value);
+		}
+
+		public function decrement_userdata() {
+			$userdata_value = $this->session->userdata('total_points');
+			$userdata_value--;
+			$this->session->set_userdata('total_points', $userdata_value);
+			echo $userdata_value;
+		}
     }

@@ -157,6 +157,23 @@
                 cube.style.webkitTransform = 'rotateX('+x+'deg) rotateY('+y+'deg)';
                 cube.style.transform = 'rotateX('+x+'deg) rotateY('+y+'deg)';
             }
+
+            function placedBet(){
+                var button1 = document.getElementById("rollNowBtn");
+                var button2 = document.getElementById("rollNowBtnDisabled");
+                
+                if(red!=0 || blue!=0 || cyan!=0 || yellow!=0 || green!=0 || magenta!=0){
+                    // document.getElementById('rollNowBtn').disabled = false; 
+                    button1.style.display = "block";
+                    button2.style.display = "none";
+                }else{
+                    // document.getElementById('rollNowBtn').disabled = true;  
+                    button1.style.display = "none";
+                    button2.style.display = "block";
+                } 
+            }
+
+            setInterval(placedBet, 1000);
         </script>
     <?php endif; ?>
 
