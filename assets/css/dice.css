@@ -99,3 +99,8 @@ h1 {
     border-bottom: none;
   }
   
+
+  .modal-content{
+    height: 10rem;
+  }
+  

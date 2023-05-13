@@ -41,10 +41,11 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto;
-    /* background-color: #2196F3; */
-    margin-top: 5.3rem;
+    grid-template-columns: 7rem 7rem;
+    margin-top: 5.7rem;
     gap: 7px;
+    justify-content: center;align-items: center;
+    text-align: center;
 }
 
 .grid-item {
@@ -246,4 +247,8 @@
 
   #rollNowBtnDisabled{
     display: block;
+  }
+
+  div#color4yellow.grid-item{
+    width: 10rem;
   }
