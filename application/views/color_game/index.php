@@ -1,8 +1,10 @@
 <script type="text/javascript">
-            function sound(){
+    function win(){
+        setTimeout(() => {
             var snd = new Audio("<?php echo base_url(); ?>assets/sound_effect/win.wav")//wav is also supported
             snd.play()//plays the sound
-};
+        }, 7500);
+    };
 </script>
 
 <div>
@@ -38,7 +40,7 @@
         <?php if($this->session->userdata('total_points')): ?>
             <p id="pointCont"><?php echo $this->session->userdata('total_points'); ?></p>
         <?php else: ?>
-            <p>0</p>
+            <p id="pointCont">0</p>
         <?php endif; ?>
         </div>
     
@@ -46,31 +48,28 @@
 </div>
 <div class="centered">
     <br>
-    <?php if($this->session->userdata('total_points') > 0) : ?>
-        <button class="basta-btn">
+        <button class="basta-btn" id="placeBet">
             <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
         </button>
-    <?php else: ?>
-        <button class="basta-btn">
+        <button class="basta-btn" id="placeBetDisabled">
             <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet">
         </button>
-    <?php endif; ?>
     
-    <button class="basta-btn" id="rollNowBtn">
-        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_Active.png" alt="Roll Now" onclick="play(); "> 
-    </button>
-    <button class="basta-btn" id="rollNowBtnDisabled">
-        <img src= "<?php echo base_url(); ?>assets/pictures/Roll_Innactive.png" alt="Roll Now"> 
-    </button>
+        <button class="basta-btn" id="rollNowBtn">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Roll_Active.png" alt="Roll Now" onclick="play(); "> 
+        </button>
+        <button class="basta-btn" id="rollNowBtnDisabled">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Roll_Innactive.png" alt="Roll Now"> 
+        </button>
 </div>
 
-<div>
+<!-- <div>
 <button type="button" id="Modal2" class="btn btn-primary" data-toggle="modal" data-target="#diceModal"> Yeah</button>
-</div>
+</div> -->
 
-<div class="letsPlayCont">
+<!-- <div class="letsPlayCont">
     <button class="letsPlay" onclick="sound()">Spin Red Dice</button>
-</div>
+</div> -->
 
 <!-- Dice Modal -->
 <div class="modal fade" id="diceModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -83,7 +82,6 @@
                
             </div> -->
             
-               
                 <div class="diceCont">
                     <div class="container">
                         <div class="colorDice" id="cube1">
@@ -170,14 +168,13 @@
                         </div>
                     </div>
                 </div>
-                    
-           
         </div>
     </div>
 </div>
 
 <!-- Results Modal -->
 <div class="modal fade" id="resultsModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    
     <div class="modal-dialog" role="document">
         <div class="modal-content">
            
@@ -186,19 +183,33 @@
            
         </div>
     </div>
+    <div class="centered">
+        <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>index';">
+            <img src= "<?php echo base_url(); ?>assets/pictures/PlayAgain.png" alt="Play Again">
+        </button>
+        <br>
+        <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>'">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Exit.png" alt="Exit"> 
+        </button>
+    </div>
 </div>
 
 
 
 
-<?php if($this->session->flashdata('game_status') == 'YOU WIN'): ?>
-        <?php echo '<script type="text/javascript">sound();</script>' ?>
+
+<?php if($this->session->flashdata('game_status') == 'Congratulations!'): ?>
+    <?php echo '<script type="text/javascript">win();</script>' ?>
 <?php endif; ?>
 
 
-<script>
-    function confetti(){
-    $(document).ready(function() {
+
+
+<!-- SCRIPTS  -->
+
+<!-- <?php if($this->session->flashdata('game_status') == 'Congratulations!'): ?>    
+    <script>
+        $(document).ready(function() {
 			for (var i = 0; i < 50; i++) {
 				var confetti = $('<div class="confetti"></div>');
 				confetti.css({
@@ -209,18 +220,54 @@
 				$('body').append(confetti);
 			}
 		});
+    </script>
+<?php endif; ?> -->
 
+<script>
+
+    var rollNowBtn = document.getElementById("rollNowBtn");
+    var rollNowBtnDisabled = document.getElementById("rollNowBtnDisabled");
+    var placeBet = document.getElementById("placeBet");
+    var placeBetDisabled = document.getElementById("placeBetDisabled");
+    var points = '<?php echo $this->session->userdata('total_points'); ?>';
+    var color = getColor();
+
+    if(points>0) {
+        placeBetDisabled.style.display = "none";
+        placeBet.style.display = "block";
+    } else {
+        console.log("don't have any bets left");
+        placeBetDisabled.style.display = "block";
+        placeBet.style.display = "none";
     }
+    
+    function toggleRoll(){
+        if (red>0 || blue>0 || cyan>0 || yellow>0 || green>0 || magenta>0) {
+            console.log(red + "" + blue + "" + cyan + "" + yellow + "" + green + "" + magenta);
+            console.log("You can now roll the dice");
+            rollNowBtnDisabled.style.display = "none";
+            rollNowBtn.style.display = "block";
+        }
+    }
+
+    function toggleBet(){
+        if(points>1) {
+            placeBetDisabled.style.display = "none";
+            placeBet.style.display = "block";
+        } else {
+            console.log("don't have any bets left");
+            placeBetDisabled.style.display = "block";
+            placeBet.style.display = "none";
+        }
+    }
+
+    // function confetti(){
+        
+
+    // }
 
     function add(){
         var color = getColor();
-        $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url();?>decrement',
-        success: function(data) {
-            console.log('New Userdata Value: ' + data);
-        }
-        });
         
         switch (color) {
             case "red":      
@@ -256,7 +303,10 @@
             default:
                 console.log("You did not chose a color");
         }
+        toggleRoll();
+        toggleBet();
     }
+
 
     function getColor(){
         let cookies = document.cookie.split(';');
@@ -277,15 +327,17 @@
         myDiv.style.border = "1px solid black";
         
         document.cookie = "myColor=" + color;
+        console.log("Marking");
+        console.log(document.cookie);
     }
 
     function unmark(id){
         var myDiv = document.getElementById(id);
         myDiv.style.border = "none";
-        document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
+        // document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        // console.log("Unmarking");
+        // console.log(document.cookie);
     }
-
 
     function play() {
         document.cookie = "red="+red;
@@ -297,72 +349,27 @@
         window.location.href = "<?php echo base_url(); ?>play"
     }
 
+    $(document).ready(function() {
+    // Define function that performs AJAX request and updates div content
+        function updateDivContent() {
+            $.ajax({
+                url: "color_game/eme",
+                type: "POST",
+                dataType: "html",
+                success: function(data) {
+                    $('#pointCont').html(data);
+                    points = data;
+                    console.log(points);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    // Handle error response from the controller
+                }
+            });
+        }
+        $('#placeBet').click(function() {
+            updateDivContent();
+        });
+    });
+
+
 </script>
-
-<!-- 
-    <input type="image" src="<?php echo base_url(); ?>assets/pictures/Magenta.png" onfocusin="mark('color6magenta')" onfocusout="unmark('color6magenta')"></input>
-<div class="colorbox-cont">
-    <div class="btnGo">
-                <button type="submit" id="go">Go</button>
-                </div>
-
-                <div class="sub-color-container">
-                    <div class="color-container" id="colorBlue">
-                        <label id="colorBlue">
-                        <input value="blue" type="radio" name="color" class = "colorClick"/>
-                        <div class="box">
-                            
-                        </div>
-                        </label>
-                    </div>
-
-                    <div class="color-container" id="colorGreen">
-                        <label id="colorGreen">
-                        
-                        <input value="green" type="radio" name="color" class = "colorClick"/>
-                        <div class="box">
-                            <span></span>
-                        </div>
-                        </label>
-                    </div>
-
-                </div>
-
-                <div class="sub-color-container">
-                    <div class="color-container" id="colorWhite">
-                        <label id="colorWhite">
-                        <input value="white" type="radio" name="color" class = "colorClick"/>
-                        <div class="box">
-                            
-                        </div>
-                        </label>
-                    </div>
-
-                    <div class="color-container" id="colorRed">
-                        <label id="colorRed">
-                        <input value="red" type="radio" name="color" class = "colorClick"/>
-                        
-                        </label>
-                    </div>
-
-                    
-                </div>
-
-                <div class="sub-color-container">
-                    
-
-                    <div class="color-container" id="colorYellow">
-                        <label id="colorYellow">
-                        <input value="yellow" type="radio" name="color" class = "colorClick"/>
-                        
-                        </label>
-                    </div>
-
-                    <div class="color-container" id="colorPink">
-                        <label id="colorPink">
-                        <input value="pink" type="radio" name="color" class = "colorClick"/>
-                        </label>
-                    </div>
-                </div>
-            
-                </div> -->

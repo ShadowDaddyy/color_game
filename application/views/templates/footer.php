@@ -106,12 +106,41 @@
 
                 cube3.style.webkitTransform = 'rotateX('+color3[0]+'deg) rotateY('+color3[1]+'deg)';
                 cube3.style.transform = 'rotateX('+color3[0]+'deg) rotateY('+color3[1]+'deg)';
-            }, 2000);
+            }, 1500);
 
+            // Switch dice to results
             setTimeout(function() {
                 $('#diceModal').hide();
                 $('#resultsModal').modal('show');
-            }, 6000);
+                var win = '<?php echo ($this->session->flashdata('game_status') == 'Congratulations!') ? 'true' : 'false'; ?>';
+                console.log(win);
+                if(win){
+                    for (var i = 0; i < 50; i++) {
+                        var confetti = $('<div class="confetti"></div>');
+                        confetti.css({
+                            "left": Math.random() * 100 + "%",
+                            "top": Math.random() * 100 + "%",
+                            "background-color": "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
+                        });
+                        $('body').append(confetti);
+                    }
+                }
+                
+            }, 8000);
+
+            // setTimeout(function() {
+            //     // $('#resultsModal').modal('hide');
+            //     $('.modal-backdrop').remove();
+            //     // location.reload();
+            // }, 10000);
+
+            // setTimeout(closeModal, 8000);
+
+            // function closeModal() {
+            //     var modal = document.getElementById("diceModal");
+
+            //     modal.style.display = "none";
+            // }
 
             function getXY(color, cubeID) {
                 // console.log(color);

@@ -5,6 +5,8 @@
 				show_404();
 			}
 
+			// $this->session->set_userdata('total_points', 10);
+
 			$data['title'] = ucfirst($page);
 
 			$this->load->view('templates/header');
@@ -39,9 +41,9 @@
 
 			if ($this->session->userdata('total_points')) {
 				$currentPoints = $this->session->userdata('total_points');
-				$totalPoints = $points + $currentPoints;
+				$totalPoints = $points + $currentPoints  ;
 			} else {
-				$totalPoints = $points;
+				$totalPoints = $points  ;
 			}
 			
 			$this->session->set_userdata('total_points', $totalPoints);
@@ -90,9 +92,60 @@
 		}
 
 		public function decrement_userdata() {
-			$userdata_value = $this->session->userdata('total_points');
-			$userdata_value--;
-			$this->session->set_userdata('total_points', $userdata_value);
-			echo $userdata_value;
+			// $userdata_value = $this->session->userdata('total_points');
+			// $userdata_value--;
+			// $this->session->set_userdata('total_points', $userdata_value);
+			// echo $userdata_value;
+
+			// Retrieve the current userdata
+			$userdata = $this->session->userdata();
+
+			// Get the new data sent from JavaScript
+			$newData = $this->input->post('newData');
+
+			// Update the relevant data in the userdata
+			$userdata['key'] = $newData; // Replace 'key' with the actual key in userdata you want to update
+
+			// Save the updated userdata
+			$this->session->set_userdata($userdata);
+
+			// Send a response back to the JavaScript function
+			$response = ['success' => true]; // Adjust the response based on your requirements
+			echo json_encode($response);
+		}
+
+		// public function get_count() {
+		// 	$this->load->library('session');
+		// 	$count = $this->session->userdata('count');
+		// 	$this->output->set_content_type('text/plain');
+		// 	$this->output->set_output($count);
+		// }
+
+		public function eme() {
+			// $this->load->library('session');
+			// $count = $this->session->userdata('total_points');
+			// $this->session->set_userdata('total_points', $count-1);
+			// // echo $count;
+			$this->get_count();
+			$this->decrement();
+			echo $this->session->userdata('total_points');
+		}
+
+		public function get_count() {
+			
+			$this->load->library('session');
+			$count = $this->session->userdata('total_points');
+			// $this->output->set_content_type('text/plain');
+			// $this->output->set_output($count);
+			// $data = $count;
+    		
+		}
+		
+		public function decrement() {
+			// echo "decrement";
+			$this->load->library('session');
+			$count = $this->session->userdata('total_points');
+			$this->session->set_userdata('total_points', $count - 1);
+			// echo $this->session->userdata('total_points');
 		}
     }

@@ -17,7 +17,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        
+        <!-- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>         -->
 
 
         <script>
@@ -29,26 +29,26 @@
             var yellow = 0;
             var green = 0;
             var magenta = 0;
-            document.cookie = "myColor=null;";
+            // document.cookie = "myColor=null;";
             // document.cookie = "red=0;blue=0;cyan=0;yellow=0;green=0;magenta=0;myColor=null;";
         </script>
         
         <style>
-		#dice {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 100px;
-			height: 100px;
-			background-color: white;
-			border-radius: 10px;
-			text-align: center;
-			font-size: 60px;
-			line-height: 100px;
-			box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
-		}
-	</style>
+            #dice {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100px;
+                height: 100px;
+                background-color: white;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 60px;
+                line-height: 100px;
+                box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+            }
+        </style>
         
     </head>
     <body style="background-image:url(' <?php echo base_url(); ?>assets/pictures/BG.png');background-repeat: no-repeat;background-attachment: fixed;background-size: cover;">
