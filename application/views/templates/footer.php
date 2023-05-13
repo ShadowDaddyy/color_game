@@ -112,19 +112,19 @@
             setTimeout(function() {
                 $('#diceModal').hide();
                 $('#resultsModal').modal('show');
-                var win = '<?php echo ($this->session->flashdata('game_status') == 'Congratulations!') ? 'true' : 'false'; ?>';
-                console.log(win);
-                if(win){
-                    for (var i = 0; i < 50; i++) {
-                        var confetti = $('<div class="confetti"></div>');
-                        confetti.css({
-                            "left": Math.random() * 100 + "%",
-                            "top": Math.random() * 100 + "%",
-                            "background-color": "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
-                        });
-                        $('body').append(confetti);
-                    }
-                }
+                // var win = '<?php echo ($this->session->flashdata('game_status') == 'Congratulations!') ? 'true' : 'false'; ?>';
+                // console.log(win);
+                // if(win){
+                //     for (var i = 0; i < 50; i++) {
+                //         var confetti = $('<div class="confetti"></div>');
+                //         confetti.css({
+                //             "left": Math.random() * 100 + "%",
+                //             "top": Math.random() * 100 + "%",
+                //             "background-color": "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
+                //         });
+                //         $('body').append(confetti);
+                //     }
+                // }
                 
             }, 8000);
 

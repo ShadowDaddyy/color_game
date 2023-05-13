@@ -5,7 +5,7 @@
 				show_404();
 			}
 
-			// $this->session->set_userdata('total_points', 10);
+			$this->session->set_userdata('total_points', 10);
 
 			$data['title'] = ucfirst($page);
 
