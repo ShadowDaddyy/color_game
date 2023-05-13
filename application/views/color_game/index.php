@@ -324,7 +324,7 @@
 
     function mark(color, id){
         var myDiv = document.getElementById(id);
-        myDiv.style.boxShadow = "inset 0 0 0 2.8px #cccc";
+        myDiv.style.boxShadow = "inset 0 0 0 2.8px #C88C5E";
         
         document.cookie = "myColor=" + color;
         console.log("Marking");
