@@ -22,12 +22,12 @@
                 <div class="boxColorCont">
 
                     <div class="grid-container">
-                        <div class="grid-item" id="color1red"  onfocusin="mark('red', 'color1red')" onfocusout="unmark('color1red')" tabindex="0" >0</div>
-                        <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark('color2blue')" tabindex="0">0</div>
-                        <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark('color3cyan')" tabindex="0">0</div>  
-                        <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark('color4yellow')" tabindex="0">0</div>
-                        <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark('color5green')" tabindex="0">0</div>
-                        <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark('color6magenta')" tabindex="0">0</div>  
+                        <div class="grid-item" id="color1red"  onfocusin="mark('red', 'color1red')" onfocusout="unmark(event, 'color1red')" tabindex="0" >0</div>
+                        <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark(event, 'color2blue')" tabindex="0">0</div>
+                        <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark(event, 'color3cyan')" tabindex="0">0</div>  
+                        <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark(event, 'color4yellow')" tabindex="0">0</div>
+                        <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark(event, 'color5green')" tabindex="0">0</div>
+                        <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark(event, 'color6magenta')" tabindex="0">0</div>  
                     </div>
 
                 </div>
@@ -331,9 +331,25 @@
         console.log(document.cookie);
     }
 
-    function unmark(id){
+    function unmark(event, id){
+        // var clickedId = event.target.id;
+
+        // console.log("Clicked: " + clickedId);
+
+        // if (clickedId != "placeBet") {
+        //     var myDiv = document.getElementById(id);
+        //     myDiv.style.boxShadow = "none";
+        //     document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        //     console.log("Unmarking");
+        //     console.log(document.cookie);
+        // } else {
+        //     console.log(document.cookie);
+        //     console.log(clickedId);
+        // }
+
         var myDiv = document.getElementById(id);
         myDiv.style.boxShadow = "none";
+        
         // document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         // console.log("Unmarking");
         // console.log(document.cookie);
