@@ -324,7 +324,7 @@
 
     function mark(color, id){
         var myDiv = document.getElementById(id);
-        myDiv.style.border = "1px solid black";
+        myDiv.style.boxShadow = "inset 0 0 0 2.8px #cccc";
         
         document.cookie = "myColor=" + color;
         console.log("Marking");
@@ -333,7 +333,7 @@
 
     function unmark(id){
         var myDiv = document.getElementById(id);
-        myDiv.style.border = "none";
+        myDiv.style.boxShadow = "none";
         // document.cookie = "myColor=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         // console.log("Unmarking");
         // console.log(document.cookie);
