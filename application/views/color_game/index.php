@@ -176,10 +176,10 @@
 <div class="modal fade" id="resultsModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" id="modalResultFinish">
            
-           <p><?php echo $this->session->flashdata('game_status'); ?></p> 
-           <p>You earned <?php echo $this->session->flashdata('points'); ?> points</p>        
+           <p class="gameResult" id="nambalibag"><?php echo $this->session->flashdata('game_status'); ?></p> 
+           <p class="gameResult" id="nabalibag">You earned <?php echo $this->session->flashdata('points'); ?> points</p>        
            
         </div>
     </div>
