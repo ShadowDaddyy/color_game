@@ -8,7 +8,8 @@
 </script>
 
 <div>
-    <button id="returnHome" onclick="window.location.href='<?php echo base_url(); ?>';">Home</button>
+<img id="arrowHome" src= "<?php echo base_url(); ?>assets/pictures/arrow-left.svg" alt="Place Bet" onclick="window.location.href='<?php echo base_url(); ?>';">
+    <!-- <button id="returnHome" onclick="window.location.href='<?php echo base_url(); ?>';">Home</button> -->
     <!-- <span><?php echo $this->session->flashdata('game_status'); ?></span></div> -->
 
    
@@ -22,12 +23,12 @@
                 <div class="boxColorCont">
 
                     <div class="grid-container">
-                        <div class="grid-item" id="color1red"  onfocusin="mark('red', 'color1red')" onfocusout="unmark(event, 'color1red')" tabindex="0" >0</div>
-                        <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark(event, 'color2blue')" tabindex="0">0</div>
-                        <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark(event, 'color3cyan')" tabindex="0">0</div>  
-                        <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark(event, 'color4yellow')" tabindex="0">0</div>
-                        <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark(event, 'color5green')" tabindex="0">0</div>
-                        <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark(event, 'color6magenta')" tabindex="0">0</div>  
+                        <div class="grid-item" id="color1red" onfocusin="mark('red', 'color1red')" onfocusout="unmark(event, 'color1red')" tabindex="0" ><p class="colorNum"></p></div>
+                        <div class="grid-item" id="color2blue" onfocusin="mark('blue', 'color2blue')" onfocusout="unmark(event, 'color2blue')" tabindex="0"><p class="colorNum"></p></div>
+                        <div class="grid-item" id="color3cyan" onfocusin="mark('cyan', 'color3cyan')" onfocusout="unmark(event, 'color3cyan')" tabindex="0"><p class="colorNum"></p></div>  
+                        <div class="grid-item" id="color4yellow" onfocusin="mark('yellow', 'color4yellow')" onfocusout="unmark(event, 'color4yellow')" tabindex="0"><p class="colorNum"></p></div>
+                        <div class="grid-item" id="color5green" onfocusin="mark('green', 'color5green')" onfocusout="unmark(event, 'color5green')" tabindex="0"><p class="colorNum"></p></div>
+                        <div class="grid-item" id="color6magenta" onfocusin="mark('magenta', 'color6magenta')" onfocusout="unmark(event, 'color6magenta')" tabindex="0"><p class="colorNum"></p></div>  
                     </div>
 
                 </div>
@@ -183,6 +184,7 @@
            
         </div>
     </div>
+
     <div class="centered">
         <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>index';">
             <img src= "<?php echo base_url(); ?>assets/pictures/PlayAgain.png" alt="Play Again">
@@ -268,36 +270,53 @@
 
     function add(){
         var color = getColor();
-        
+       
         switch (color) {
             case "red":      
                 red++;
-                document.getElementById("color1red").innerHTML = red;
+                var kulay = document.getElementById("color1red");
+                var kulayNum = kulay.querySelector("p");
+                kulayNum.textContent = red;
                 console.log("red is " + red);
                 break;
             case "blue":
                 blue++;
-                document.getElementById("color2blue").innerHTML = blue;
+                document.getElementById("color2blue");
+                var kulay = document.getElementById("color2blue");
+                var kulayNum = kulay.querySelector("p");
+                kulayNum.textContent = blue;
                 console.log("blue is " + blue);
                 break;
             case "cyan":
                 cyan++;
-                document.getElementById("color3cyan").innerHTML = cyan;
+                document.getElementById("color3cyan");
+                var kulay = document.getElementById("color3cyan");
+                var kulayNum = kulay.querySelector("p");
+                kulayNum.textContent = cyan;
                 console.log("cyan is " + cyan);
                 break;
             case "yellow":
                 yellow++;
-                document.getElementById("color4yellow").innerHTML = yellow;
+                document.getElementById("color4yellow");
+                var kulay = document.getElementById("color4yellow");
+                var kulayNum = kulay.querySelector("p");
+                kulayNum.textContent = yellow;
                 console.log("yellow is " + yellow);
                 break;
             case "green":
                 green++;
-                document.getElementById("color5green").innerHTML = green;
+                document.getElementById("color5green");
+                var kulay = document.getElementById("color5green");
+                var kulayNum = kulay.querySelector("p");
+                kulayNum.textContent = green;
                 console.log("green is " + green);
                 break;
             case "magenta":
                 magenta++;
-                document.getElementById("color6magenta").innerHTML = magenta;
+                document.getElementById("color6magenta");
+                var kulay = document.getElementById("color6magenta");
+                var kulayNum = kulay.querySelector("p");
+                kulayNum.textContent = magenta;
                 console.log("magenta is " + magenta);
                 break;
             default:
@@ -324,7 +343,7 @@
 
     function mark(color, id){
         var myDiv = document.getElementById(id);
-        myDiv.style.boxShadow = "inset 0 0 0 2.8px #C88C5E";
+        myDiv.style.boxShadow = "inset 0 0 0 3px #fefefe";
         
         document.cookie = "myColor=" + color;
         console.log("Marking");

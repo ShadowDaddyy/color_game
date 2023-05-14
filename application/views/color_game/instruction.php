@@ -1,4 +1,4 @@
-<button id="returnHome" onclick="window.location.href='<?php echo base_url(); ?>';">Home</button>
+<img id="arrowHome" src= "<?php echo base_url(); ?>assets/pictures/arrow-left.svg" alt="Place Bet" onclick="window.location.href='<?php echo base_url(); ?>';">
 
 <div class="mechanicsCont">
     <ul>

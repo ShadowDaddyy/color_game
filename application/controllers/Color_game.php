@@ -40,10 +40,12 @@
 			$this->session->set_flashdata('points', $points);
 
 			if ($this->session->userdata('total_points')) {
+				
 				$currentPoints = $this->session->userdata('total_points');
-				$totalPoints = $points + $currentPoints  ;
+				$totalPoints = $points + $currentPoints;
 			} else {
-				$totalPoints = $points  ;
+				
+				$totalPoints = $points;
 			}
 			
 			$this->session->set_userdata('total_points', $totalPoints);
@@ -87,6 +89,7 @@
 		}
 
 		public function update_userdata() {
+			sleep(10);
 			$new_value = $this->input->post('total_points');
 			$this->session->set_userdata('total_points', $new_value);
 		}

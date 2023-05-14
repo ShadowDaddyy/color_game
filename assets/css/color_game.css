@@ -54,10 +54,16 @@
     text-align: center;
 }
 
-/* .grid-item {
+.grid-item {
+    display: flex;
+    justify-content: center;
     
-    
-} */
+}
+.colorNum{
+    margin-top: 2rem !important;
+    color: white;
+    font-weight: bold;
+}
 
 
 .checkboxoption{
@@ -145,7 +151,7 @@
 }
 
 #colorWhite{
-    background-color: white;
+    background-color: rgb(254, 254, 254);
 }
 
 #colorYellow{
@@ -273,4 +279,12 @@
 
   #rollNowBtnDisabled{
     display: block;
+  }
+
+  #arrowHome{
+    position: static;
+    float: left;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 2rem;
   }
