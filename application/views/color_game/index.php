@@ -1,4 +1,38 @@
 <script type="text/javascript">
+    
+    var colors = ["#c4ae31", "#10e65b","#e63010"];
+
+    function winning() {
+        setTimeout(() => {
+        confetti({
+            particleCount: 2,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+        });
+        confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+        });
+        confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+        });
+        }, 1500);
+
+        if (Date.now() < Date.now() + 15000) {
+            requestAnimationFrame(winning);
+        }
+        
+    }
+   
     function win(){
         setTimeout(() => {
             var snd = new Audio("<?php echo base_url(); ?>assets/sound_effect/win.wav")//wav is also supported
@@ -50,8 +84,9 @@
 <div class="centered">
     <br>
         <button class="basta-btn" id="placeBet">
-            <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" id="confettiTrigger" onclick="add();">
         </button>
+        <button onclick="winning();">wew</button>
         <button class="basta-btn" id="placeBetDisabled">
             <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet">
         </button>
@@ -180,12 +215,14 @@
         <div class="modal-content" id="modalResultFinish">
            
            <p class="gameResult" id="nambalibag"><?php echo $this->session->flashdata('game_status'); ?></p> 
-           <p class="gameResult" id="nabalibag">You earned <?php echo $this->session->flashdata('points'); ?> points</p>        
+           <p class="gameResult" id="nabalibag">You earned <?php echo $this->session->flashdata('points'); ?> points</p> 
+           <p id="nabalibag">current points <?php echo $this->session->userdata('total_points'); ?></p>       
            
         </div>
     </div>
 
     <div class="centered">
+    
         <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>index';">
             <img src= "<?php echo base_url(); ?>assets/pictures/PlayAgain.png" alt="Play Again">
         </button>
@@ -197,12 +234,13 @@
 </div>
 
 
-
-
-
 <?php if($this->session->flashdata('game_status') == 'Congratulations!'): ?>
     <?php echo '<script type="text/javascript">win();</script>' ?>
+    <?php echo '<script type="text/javascript">winning();</script>' ?>
 <?php endif; ?>
+
+
+
 
 
 
@@ -406,5 +444,10 @@
         });
     });
 
+
+
+
+    
+        
 
 </script>

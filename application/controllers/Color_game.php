@@ -5,9 +5,13 @@
 				show_404();
 			}
 
-			$this->session->set_userdata('total_points', 10);
+			
 
 			$data['title'] = ucfirst($page);
+
+
+			// $this->session->set_userdata('total_points', 100);
+			
 
 			$this->load->view('templates/header');
 			$this->load->view('color_game/'.$page, $data);
@@ -39,10 +43,25 @@
 			$points = $point1 + $point2 + $point3;
 			$this->session->set_flashdata('points', $points);
 
+			
+			if ($points > 0) {
+				$this->session->set_flashdata('game_status', 'Congratulations!');
+			} else {
+				$this->session->set_flashdata('game_status', 'Better Luck Next Time');
+			}
+
+			$this->update_userdata($points);
+			redirect('/index');
+
+			// die ($random_colors[0].$point1 . " + " . $random_colors[1].$point2 . " + " . $random_colors[2].$point3 . " = " . $totalPoints . " " . $this->session->userdata('game_status'));
+
+        }
+
+		public function update_userdata($points) {
 			if ($this->session->userdata('total_points')) {
-				
 				$currentPoints = $this->session->userdata('total_points');
 				$totalPoints = $points + $currentPoints;
+				
 			} else {
 				
 				$totalPoints = $points;
@@ -50,17 +69,9 @@
 			
 			$this->session->set_userdata('total_points', $totalPoints);
 
-			if ($points > 0) {
-				$this->session->set_flashdata('game_status', 'Congratulations!');
-			} else {
-				$this->session->set_flashdata('game_status', 'Better Luck Next Time');
-			}
+			
 
-			redirect('/index');
-
-			// die ($random_colors[0].$point1 . " + " . $random_colors[1].$point2 . " + " . $random_colors[2].$point3 . " = " . $totalPoints . " " . $this->session->userdata('game_status'));
-
-        }
+		}
 
 		public function calculate($color){
 			switch ($color) {
@@ -88,11 +99,7 @@
 			return $point;
 		}
 
-		public function update_userdata() {
-			sleep(10);
-			$new_value = $this->input->post('total_points');
-			$this->session->set_userdata('total_points', $new_value);
-		}
+		
 
 		public function decrement_userdata() {
 			// $userdata_value = $this->session->userdata('total_points');
