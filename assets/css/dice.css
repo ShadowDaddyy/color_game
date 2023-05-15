@@ -6,7 +6,7 @@ body{
   display: flex;
   justify-content: center;
   margin: auto;
-  height: 50%;
+  height: 30%;
   width: 80%;
 }
 
@@ -36,7 +36,7 @@ h1 {
   }
   
   .colorDice .left {
-    background-color: white;
+    background-color: cyan;
     transform:
       rotateY(-90deg)
       translateZ(30px);
@@ -50,7 +50,7 @@ h1 {
   }
   
   .colorDice .bottom {
-    background-color: pink;
+    background-color: magenta;
     transform:
       rotateX(-90deg)
       translateZ(30px);
@@ -101,7 +101,7 @@ h1 {
   
 
   .modal-content{
-    height: 10rem;
+    height: 15rem;
     background-color: rgb(34, 32, 32) !important;
     border: 5px solid yellow !important;
   }
@@ -111,11 +111,15 @@ h1 {
   }
 
   #modalResultFinish{
+    display: flex;
     text-align: center ;
+    justify-content: center;
+    align-items: center;
     color: white;
   }
 
   .gameResult{
+    margin-top: 1rem;
     font-size: 2rem;
   }
 
