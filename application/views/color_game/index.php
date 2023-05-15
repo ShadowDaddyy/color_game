@@ -25,7 +25,7 @@
             origin: { x: 1 },
             colors: colors,
         });
-        }, 1500);
+        }, 7500);
 
         if (Date.now() < Date.now() + 15000) {
             requestAnimationFrame(winning);
@@ -86,7 +86,7 @@
         <button class="basta-btn" id="placeBet">
             <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" id="confettiTrigger" onclick="add();">
         </button>
-        <button onclick="winning();">wew</button>
+        
         <button class="basta-btn" id="placeBetDisabled">
             <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet">
         </button>
@@ -122,27 +122,27 @@
                     <div class="container">
                         <div class="colorDice" id="cube1">
                             <div class="front" data-value='red'>
-                            <span>1</span>
+                            <span></span>
 
                             </div>
                             <div class="back" data-value='green'>
-                            <span>2</span>
+                            <span></span>
                             
                             </div>
                             <div class="right" data-value='blue'>
-                            <span>3</span>
+                            <span></span>
                             
                             </div>
                             <div class="left" data-value='white'>
-                            <span>4</span>
+                            <span></span>
                             
                             </div>
                             <div class="top" data-value='yellow'>
-                            <span>5</span>
+                            <span></span>
                             
                             </div>
                             <div class="bottom" data-value='pink'>
-                            <span>6</span>
+                            <span></span>
                             
                             </div>
                         </div>
@@ -151,26 +151,26 @@
                     <div class="container">
                         <div class="colorDice" id="cube2">
                             <div class="front">
-                            <span>1</span>
+                            <span></span>
                             </div>
                             <div class="back">
-                            <span>2</span>
+                            <span></span>
                             
                             </div>
                             <div class="right">
-                            <span>3</span>
+                            <span></span>
                             
                             </div>
                             <div class="left">
-                            <span>4</span>
+                            <span></span>
                             
                             </div>
                             <div class="top">
-                            <span>5</span>
+                            <span></span>
                             
                             </div>
                             <div class="bottom">
-                            <span>6</span>
+                            <span></span>
                             
                             </div>
                         </div>
@@ -179,26 +179,26 @@
                     <div class="container">
                         <div class="colorDice" id="cube3">
                             <div class="front">
-                            <span>1</span>
+                            <span></span>
                             </div>
                             <div class="back">
-                            <span>2</span>
+                            <span></span>
                             
                             </div>
                             <div class="right">
-                            <span>3</span>
+                            <span></span>
                             
                             </div>
                             <div class="left">
-                            <span>4</span>
+                            <span></span>
                             
                             </div>
                             <div class="top">
-                            <span>5</span>
+                            <span></span>
                             
                             </div>
                             <div class="bottom">
-                            <span>6</span>
+                            <span></span>
                             
                             </div>
                         </div>
@@ -210,7 +210,6 @@
 
 <!-- Results Modal -->
 <div class="modal fade" id="resultsModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    
     <div class="modal-dialog" role="document">
         <div class="modal-content" id="modalResultFinish">
            
