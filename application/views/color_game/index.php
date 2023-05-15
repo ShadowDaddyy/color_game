@@ -1,4 +1,38 @@
 <script type="text/javascript">
+    
+    var colors = ["#c4ae31", "#10e65b","#e63010"];
+
+    function winning() {
+        setTimeout(() => {
+        confetti({
+            particleCount: 2,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: colors,
+        });
+        confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+        });
+        confetti({
+            particleCount: 2,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: colors,
+        });
+        }, 7500);
+
+        if (Date.now() < Date.now() + 15000) {
+            requestAnimationFrame(winning);
+        }
+        
+    }
+   
     function win(){
         setTimeout(() => {
             var snd = new Audio("<?php echo base_url(); ?>assets/sound_effect/win.wav")//wav is also supported
@@ -50,8 +84,9 @@
 <div class="centered">
     <br>
         <button class="basta-btn" id="placeBet">
-            <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" onclick="add()">
+            <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet" id="confettiTrigger" onclick="add();">
         </button>
+        
         <button class="basta-btn" id="placeBetDisabled">
             <img src= "<?php echo base_url(); ?>assets/pictures/Bet.png" alt="Place Bet">
         </button>
@@ -87,7 +122,7 @@
                     <div class="container">
                         <div class="colorDice" id="cube1">
                             <div class="front" data-value='red'>
-                            <span>1</span>
+                            <span></span>
 
                             </div>
                             <div class="back" data-value='blue'>
@@ -116,26 +151,26 @@
                     <div class="container">
                         <div class="colorDice" id="cube2">
                             <div class="front">
-                            <span>1</span>
+                            <span></span>
                             </div>
                             <div class="back">
-                            <span>2</span>
+                            <span></span>
                             
                             </div>
                             <div class="right">
-                            <span>3</span>
+                            <span></span>
                             
                             </div>
                             <div class="left">
-                            <span>4</span>
+                            <span></span>
                             
                             </div>
                             <div class="top">
-                            <span>5</span>
+                            <span></span>
                             
                             </div>
                             <div class="bottom">
-                            <span>6</span>
+                            <span></span>
                             
                             </div>
                         </div>
@@ -144,26 +179,26 @@
                     <div class="container">
                         <div class="colorDice" id="cube3">
                             <div class="front">
-                            <span>1</span>
+                            <span></span>
                             </div>
                             <div class="back">
-                            <span>2</span>
+                            <span></span>
                             
                             </div>
                             <div class="right">
-                            <span>3</span>
+                            <span></span>
                             
                             </div>
                             <div class="left">
-                            <span>4</span>
+                            <span></span>
                             
                             </div>
                             <div class="top">
-                            <span>5</span>
+                            <span></span>
                             
                             </div>
                             <div class="bottom">
-                            <span>6</span>
+                            <span></span>
                             
                             </div>
                         </div>
@@ -175,17 +210,18 @@
 
 <!-- Results Modal -->
 <div class="modal fade" id="resultsModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    
     <div class="modal-dialog" role="document">
         <div class="modal-content" id="modalResultFinish">
            
            <p class="gameResult" id="nambalibag"><?php echo $this->session->flashdata('game_status'); ?></p> 
-           <p class="gameResult" id="nabalibag">You earned <?php echo $this->session->flashdata('points'); ?> points</p>        
+           <p class="gameResult" id="nabalibag">You earned <?php echo $this->session->flashdata('points'); ?> points</p> 
+           <p id="nabalibag">current points <?php echo $this->session->userdata('total_points'); ?></p>       
            
         </div>
     </div>
 
     <div class="centered">
+    
         <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>index';">
             <img src= "<?php echo base_url(); ?>assets/pictures/PlayAgain.png" alt="Play Again">
         </button>
@@ -197,12 +233,13 @@
 </div>
 
 
-
-
-
 <?php if($this->session->flashdata('game_status') == 'Congratulations!'): ?>
     <?php echo '<script type="text/javascript">win();</script>' ?>
+    <?php echo '<script type="text/javascript">winning();</script>' ?>
 <?php endif; ?>
+
+
+
 
 
 
@@ -406,5 +443,10 @@
         });
     });
 
+
+
+
+    
+        
 
 </script>

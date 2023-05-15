@@ -1,5 +1,18 @@
 .mechanicsCont{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 85%;
     
 }
+
+#arrowHomeInst{
+    display: block;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    width: 2rem !important;
+  }
+
+  .instCont{
+    height: 100%;
+  }
