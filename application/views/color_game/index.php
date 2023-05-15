@@ -126,23 +126,23 @@
 
                             </div>
                             <div class="back" data-value='blue'>
-                            <span>2</span>
+                            <span></span>
                             
                             </div>
                             <div class="right" data-value='cyan'>
-                            <span>3</span>
+                            <span></span>
                             
                             </div>
                             <div class="left" data-value='yellow'>
-                            <span>4</span>
+                            <span></span>
                             
                             </div>
                             <div class="top" data-value='green'>
-                            <span>5</span>
+                            <span></span>
                             
                             </div>
                             <div class="bottom" data-value='magenta'>
-                            <span>6</span>
+                            <span></span>
                             
                             </div>
                         </div>
@@ -215,7 +215,7 @@
            
            <p class="gameResult" id="nambalibag"><?php echo $this->session->flashdata('game_status'); ?></p> 
            <p class="gameResult" id="nabalibag">You earned <?php echo $this->session->flashdata('points'); ?> points</p> 
-           <p id="nabalibag">current points <?php echo $this->session->userdata('total_points'); ?></p>       
+           <p id="nabalibag">Current points <?php echo $this->session->userdata('total_points'); ?></p>       
            
         </div>
     </div>
@@ -225,7 +225,6 @@
         <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>index';">
             <img src= "<?php echo base_url(); ?>assets/pictures/PlayAgain.png" alt="Play Again">
         </button>
-        <br>
         <button class="basta-btn" onclick="window.location.href='<?php echo base_url(); ?>'">
             <img src= "<?php echo base_url(); ?>assets/pictures/Exit.png" alt="Exit"> 
         </button>
