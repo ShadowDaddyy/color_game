@@ -90,23 +90,23 @@
                             <span>1</span>
 
                             </div>
-                            <div class="back" data-value='green'>
+                            <div class="back" data-value='blue'>
                             <span>2</span>
                             
                             </div>
-                            <div class="right" data-value='blue'>
+                            <div class="right" data-value='cyan'>
                             <span>3</span>
                             
                             </div>
-                            <div class="left" data-value='white'>
+                            <div class="left" data-value='yellow'>
                             <span>4</span>
                             
                             </div>
-                            <div class="top" data-value='yellow'>
+                            <div class="top" data-value='green'>
                             <span>5</span>
                             
                             </div>
-                            <div class="bottom" data-value='pink'>
+                            <div class="bottom" data-value='magenta'>
                             <span>6</span>
                             
                             </div>

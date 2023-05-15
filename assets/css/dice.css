@@ -16,41 +16,41 @@ h1 {
   }
   
   .colorDice .front {
-    background-color: red;
+    background-color: #E32726;
     transform: 
       translateZ(30px);
   }
   
   .colorDice .back {
-    background-color: green;
+    background-color: #2251D1;
     transform: 
       rotateX(-180deg)
       translateZ(30px);
   }
   
   .colorDice .right {
-    background-color: blue;
+    background-color: #00FFFF;
     transform:
       rotateY(90deg)
       translateZ(30px);
   }
   
   .colorDice .left {
-    background-color: white;
+    background-color: #FFCE00;
     transform:
       rotateY(-90deg)
       translateZ(30px);
   }
   
   .colorDice .top {
-    background-color: yellow;
+    background-color: #00FF00;
     transform:
       rotateX(90deg)
       translateZ(30px);
   }
   
   .colorDice .bottom {
-    background-color: pink;
+    background-color: #ED1E79;
     transform:
       rotateX(-90deg)
       translateZ(30px);
