@@ -12,21 +12,14 @@
     margin-bottom:3em;
 }
 
-.basta-btn , .basta-btn2{
+.modal-btn{
     border:none;
     border-radius: 100px;
     padding:0;
     margin-bottom: 10px;
+    display: block;
 }
 
 .startBtnCont{
     display: inline-block;
-}
-
-.basta-btn{
-    display: block;
-}
-
-.basta-btn2{
-    display: block;
 }

@@ -1,3 +1,10 @@
+body {
+    background-image:url('../pictures/BG.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .centered {
     display: flex;
     flex-direction: column;
@@ -287,5 +294,11 @@
     float: left;
     margin-left: 1rem;
     margin-top: 1rem;
+    
+    background: none;
+    border: none;
+  }
+
+  #arrowHome img {
     width: 2rem;
   }
