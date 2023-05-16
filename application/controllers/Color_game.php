@@ -6,7 +6,7 @@
 			}
 
 			// Set the initial 'Avaiable Points' value for the game
-			// $this->session->set_userdata('total_points', 10); //Comment this line after loading page
+			$this->session->set_userdata('total_points', 10); //Comment this line after loading page
 
 			$data['title'] = ucfirst($page);			
 
